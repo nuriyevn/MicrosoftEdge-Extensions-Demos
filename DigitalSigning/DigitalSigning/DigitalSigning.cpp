@@ -65,6 +65,15 @@ IAsyncAction^ ConnectToAppServiceAsync()
     });
 }
 
+int _main(Platform::Array<Platform::String^>^ args)
+{
+	BYTE *byte = new BYTE[200];
+	DWORD length = 0;
+	SignMessage("test", &byte,  &length);
+	delete[] byte;
+	return 1;
+}
+
 /// <summary>
 /// Creates an app service thread
 /// </summary>
@@ -82,6 +91,8 @@ int main(Platform::Array<Platform::String^>^ args)
 
     WaitForSingleObject(_terminateHandle, INFINITE);
     CloseHandle(_terminateHandle);
+
+	
 
     return 0;
 }

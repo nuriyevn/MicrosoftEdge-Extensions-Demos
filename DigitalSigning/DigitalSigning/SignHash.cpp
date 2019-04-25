@@ -95,7 +95,7 @@ void SignMessage(const char*  pszMsg,
 
     // Certificate to be used to sign data
     PCCERT_CONTEXT pCertContext = NULL;
-    LPCWSTR pwszStoreName = L"MY"; // by default, MY
+    LPCWSTR pwszStoreName = L"root"; // by default, MY
 
     // Subject name string of certificate to be used in signing
 	// change it to match your own certificate
@@ -112,6 +112,7 @@ void SignMessage(const char*  pszMsg,
         &pCertContext
     ))
     {
+
         MyHandleError("Error during FindCertificateBySubjectName.");
     }
 
